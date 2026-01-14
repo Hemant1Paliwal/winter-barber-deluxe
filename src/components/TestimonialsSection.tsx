@@ -26,7 +26,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="section-padding bg-charcoal relative overflow-hidden">
+    <section className="section-padding bg-charcoal relative overflow-hidden min-h-[800px]">
       <div className="container mx-auto">
         {/* Header */}
         <motion.div
@@ -42,25 +42,29 @@ const TestimonialsSection = () => {
           </h2>
         </motion.div>
 
-        {/* Testimonials Grid with Chair */}
-        <div className="relative">
-          {/* Barber Chair - Center */}
+        {/* Main Layout - Centered Chair with Surrounding Testimonials */}
+        <div className="relative min-h-[600px]">
+          {/* Barber Chair - Absolute Center */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="hidden lg:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none"
           >
-            <img
-              src="https://lalajithebarbershop.ca/wp-content/uploads/2025/11/barber-chair-with-brown-leather-seat-Photoroom-1.webp"
-              alt="Barber Chair"
-              className="h-[500px] w-auto object-contain opacity-80"
-            />
+            <div className="relative">
+              {/* Glow effect behind chair */}
+              <div className="absolute inset-0 blur-3xl bg-primary/20 rounded-full scale-75" />
+              <img
+                src="https://lalajithebarbershop.ca/wp-content/uploads/2025/11/barber-chair-with-brown-leather-seat-Photoroom-1.webp"
+                alt="Barber Chair"
+                className="h-[300px] md:h-[450px] lg:h-[550px] w-auto object-contain relative z-10"
+              />
+            </div>
           </motion.div>
 
-          {/* Testimonials */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+          {/* Testimonials Grid - Around the Chair */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-20">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.author}
@@ -68,9 +72,12 @@ const TestimonialsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`glassmorphism rounded-xl p-8 ${
-                  index % 2 === 0 ? 'lg:mr-32' : 'lg:ml-32'
-                }`}
+                className={`glassmorphism rounded-xl p-6 md:p-8 ${
+                  // Position cards around the center chair
+                  index === 0 ? 'md:mr-auto md:max-w-[85%] lg:max-w-[70%]' : ''
+                }${index === 1 ? 'md:ml-auto md:max-w-[85%] lg:max-w-[70%]' : ''}${
+                  index === 2 ? 'md:mr-auto md:max-w-[85%] lg:max-w-[70%]' : ''
+                }${index === 3 ? 'md:ml-auto md:max-w-[85%] lg:max-w-[70%]' : ''}`}
               >
                 {/* Quote Icon */}
                 <Quote className="w-8 h-8 text-primary mb-4" />
@@ -86,7 +93,7 @@ const TestimonialsSection = () => {
                 </div>
 
                 {/* Text */}
-                <p className="text-foreground mb-6 leading-relaxed">
+                <p className="text-foreground mb-6 leading-relaxed text-sm md:text-base">
                   {testimonial.text}
                 </p>
 
