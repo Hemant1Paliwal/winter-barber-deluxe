@@ -14,13 +14,18 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
+  const leftNavLinks = [
     { label: 'Home', href: '#hero' },
     { label: 'Services', href: '#services', hasDropdown: true },
     { label: 'Team', href: '#team' },
+  ];
+
+  const rightNavLinks = [
     { label: 'Gallery', href: '#gallery' },
     { label: 'Contact Us', href: '#contact' },
   ];
+
+  const allNavLinks = [...leftNavLinks, ...rightNavLinks];
 
   return (
     <motion.nav
@@ -33,22 +38,27 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Left Nav Links - Desktop */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navLinks.slice(0, 3).map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-foreground hover:text-primary transition-colors text-sm font-medium flex items-center gap-1"
-              >
-                {link.label}
-                {link.hasDropdown && <ChevronDown size={14} />}
-              </a>
-            ))}
+          <div className="hidden lg:flex items-center justify-start flex-1">
+            <div className="flex items-center space-x-8">
+              {leftNavLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-foreground hover:text-primary transition-colors text-sm font-medium flex items-center gap-1 whitespace-nowrap"
+                >
+                  {link.label}
+                  {link.hasDropdown && <ChevronDown size={14} />}
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Logo */}
-          <a href="#hero" className="flex-shrink-0">
-            <img
+          {/* Centered Logo */}
+          <a href="#hero" className="flex-shrink-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+            <motion.img
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
               src="https://lalajithebarbershop.ca/wp-content/uploads/2025/11/Lalaji-Mobile-Logo.png"
               alt="Lalaji The Barber Shop"
               className="h-12 md:h-14 w-auto"
@@ -56,31 +66,33 @@ const Navbar = () => {
           </a>
 
           {/* Right Nav Links - Desktop */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navLinks.slice(3).map((link) => (
+          <div className="hidden lg:flex items-center justify-end flex-1">
+            <div className="flex items-center space-x-8">
+              {rightNavLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-foreground hover:text-primary transition-colors text-sm font-medium whitespace-nowrap"
+                >
+                  {link.label}
+                </a>
+              ))}
               <a
-                key={link.label}
-                href={link.href}
-                className="text-foreground hover:text-primary transition-colors text-sm font-medium flex items-center gap-1"
+                href="https://lalajithebarbershop.ca"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-gold-outline text-sm py-2 px-6 whitespace-nowrap"
               >
-                {link.label}
-                {link.hasDropdown && <ChevronDown size={14} />}
+                Book Your Appointment
               </a>
-            ))}
-            <a
-              href="https://lalajithebarbershop.ca"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-gold-outline text-sm py-2 px-6"
-            >
-              Book Your Appointment
-            </a>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden text-foreground p-2"
+            aria-label="Toggle mobile menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -95,7 +107,7 @@ const Navbar = () => {
             className="lg:hidden bg-background/95 backdrop-blur-lg border-t border-border"
           >
             <div className="py-4 space-y-4">
-              {navLinks.map((link) => (
+              {allNavLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
@@ -110,7 +122,7 @@ const Navbar = () => {
                   href="https://lalajithebarbershop.ca"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-gold w-full text-center"
+                  className="btn-gold w-full text-center block"
                 >
                   Book Your Appointment
                 </a>
