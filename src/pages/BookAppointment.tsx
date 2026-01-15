@@ -78,7 +78,7 @@ const BookAppointment = () => {
       <Navbar />
       
       {/* Hero Banner with Parallax */}
-      <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
+      <section className="relative h-[40vh] min-h-[320px] overflow-hidden">
         <motion.div
           className="absolute inset-0"
           initial={{ scale: 1.1 }}
@@ -112,24 +112,8 @@ const BookAppointment = () => {
       </section>
 
       {/* Locations Section */}
-      <section className="relative z-10 py-20 px-4 md:px-8">
+      <section className="relative z-10 py-8 px-4 md:px-8 pb-20">
         <div className="max-w-7xl mx-auto">
-          {/* Section Title */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-primary mb-4">
-              Select Your Location
-            </h2>
-            <p className="text-white/60 text-lg max-w-2xl mx-auto">
-              Choose from our premium barbershop locations across Nova Scotia
-            </p>
-          </motion.div>
-
           {/* Locations Grid */}
           <motion.div
             variants={containerVariants}
@@ -138,7 +122,7 @@ const BookAppointment = () => {
             viewport={{ once: true, margin: "-100px" }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {locations.map((location, index) => (
+            {locations.map((location) => (
               <motion.div key={location.city} variants={cardVariants}>
                 <LocationCard {...location} />
               </motion.div>
