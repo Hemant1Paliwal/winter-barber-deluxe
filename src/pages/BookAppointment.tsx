@@ -10,30 +10,35 @@ const locations = [
     image: 'https://lalajithebarbershop.ca/wp-content/uploads/2025/12/Halifax.webp',
     address: '1333 South Park St, Halifax, NS B3K 2K9, Canada',
     bookingLink: 'https://lalajithebarbershop.ca/booking/',
+    locationId: 'HALIFAX001',
   },
   {
     city: 'Dartmouth',
     image: 'https://lalajithebarbershop.ca/wp-content/uploads/2025/12/Dartmouth.webp',
     address: '169 Main St Unit 05, Dartmouth NS B2X 1S1 Canada',
     bookingLink: 'https://lalajithebarbershop.ca/booking/',
+    locationId: 'DARTMOUTH001',
   },
   {
     city: 'Truro',
     image: 'https://lalajithebarbershop.ca/wp-content/uploads/2025/12/Truro.webp',
     address: '523 Prince St Unit 1, Truro, NS B2N 1E8, Canada',
     bookingLink: 'https://lalajithebarbershop.ca/booking/',
+    locationId: 'TRURO001',
   },
   {
     city: 'Sydney',
     image: 'https://lalajithebarbershop.ca/wp-content/uploads/2025/12/Sydney.webp',
     address: '148 Prince St, Sydney, NS B1P 5J7',
     bookingLink: 'https://lalajithebarbershop.ca/booking/',
+    locationId: 'SYDNEY001',
   },
   {
     city: 'Bedford',
     image: 'https://lalajithebarbershop.ca/wp-content/uploads/2025/12/Bedford.webp',
     address: '1509 Bedford Hwy, Bedford, NS B4A 1E3, Canada',
     bookingLink: 'https://lalajithebarbershop.ca/booking/',
+    locationId: 'BEDFORD001',
   },
 ];
 

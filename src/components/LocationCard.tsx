@@ -1,14 +1,16 @@
 import { motion } from 'framer-motion';
 import { MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface LocationCardProps {
   image: string;
   city: string;
   address: string;
   bookingLink: string;
+  locationId: string;
 }
 
-const LocationCard = ({ image, city, address, bookingLink }: LocationCardProps) => {
+const LocationCard = ({ image, city, address, locationId }: LocationCardProps) => {
   return (
     <motion.div
       className="group relative overflow-hidden rounded-2xl bg-gray-900/60 backdrop-blur-md border border-white/10 hover:border-yellow-500/50 transition-all duration-500"
@@ -44,16 +46,14 @@ const LocationCard = ({ image, city, address, bookingLink }: LocationCardProps) 
         </p>
 
         {/* Book Now Button with Shimmer */}
-        <a
-          href={bookingLink}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          to={`/appointments/8ptc7ww45z5s53/location/${locationId}/services`}
           className="relative overflow-hidden px-8 py-3 bg-primary text-primary-foreground font-semibold rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] group/btn"
         >
           <span className="relative z-10">BOOK NOW</span>
           {/* Shimmer Effect */}
           <div className="absolute inset-0 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-        </a>
+        </Link>
       </div>
 
       {/* Glow Effect on Hover */}
