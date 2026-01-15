@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,14 +18,14 @@ const Navbar = () => {
   }, []);
 
   const leftNavLinks = [
-    { label: 'Home', href: '#hero' },
-    { label: 'Services', href: '#services', hasDropdown: true },
-    { label: 'Team', href: '#team' },
+    { label: 'Home', href: isHomePage ? '#hero' : '/' },
+    { label: 'Services', href: isHomePage ? '#services' : '/#services', hasDropdown: true },
+    { label: 'Team', href: isHomePage ? '#team' : '/#team' },
   ];
 
   const rightNavLinks = [
-    { label: 'Gallery', href: '#gallery' },
-    { label: 'Contact Us', href: '#contact' },
+    { label: 'Gallery', href: isHomePage ? '#gallery' : '/#gallery' },
+    { label: 'Contact Us', href: isHomePage ? '#contact' : '/#contact' },
   ];
 
   const allNavLinks = [...leftNavLinks, ...rightNavLinks];
@@ -77,14 +80,12 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
-              <a
-                href="https://lalajithebarbershop.ca"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/book-appointment"
                 className="btn-gold-outline text-sm py-2 px-6 whitespace-nowrap"
               >
                 Book Your Appointment
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -118,14 +119,13 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="px-4 pt-4">
-                <a
-                  href="https://lalajithebarbershop.ca"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/book-appointment"
+                  onClick={() => setIsMobileMenuOpen(false)}
                   className="btn-gold w-full text-center block"
                 >
                   Book Your Appointment
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>

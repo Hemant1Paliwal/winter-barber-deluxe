@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const CTASection = () => {
   return (
@@ -28,14 +29,12 @@ const CTASection = () => {
           <p className="text-muted-foreground mb-8">
             Reserve your seat and walk out looking your best.
           </p>
-          <a
-            href="https://lalajithebarbershop.ca"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/book-appointment"
             className="btn-gold-outline text-lg"
           >
             Book Your Appointment
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

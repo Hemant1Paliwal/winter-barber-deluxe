@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const PromoPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const hasSeenPopup = sessionStorage.getItem('lalaji-promo-seen');
@@ -22,8 +24,7 @@ const PromoPopup = () => {
 
   const handleBookNow = () => {
     handleClose();
-    // Scroll to booking or open booking link
-    window.open('https://lalajithebarbershop.ca', '_blank');
+    navigate('/book-appointment');
   };
 
   return (

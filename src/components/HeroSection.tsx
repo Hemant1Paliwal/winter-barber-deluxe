@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
@@ -55,17 +56,18 @@ const HeroSection = () => {
         </motion.p>
 
         {/* CTA Button */}
-        <motion.a
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
-          href="https://lalajithebarbershop.ca"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-gold-outline text-lg animate-glow"
         >
-          Book Your Appointment
-        </motion.a>
+          <Link
+            to="/book-appointment"
+            className="btn-gold-outline text-lg animate-glow inline-block"
+          >
+            Book Your Appointment
+          </Link>
+        </motion.div>
       </div>
 
       {/* Scroll Indicator */}
