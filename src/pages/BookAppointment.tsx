@@ -74,7 +74,7 @@ const BookAppointment = () => {
   return (
     <div className="min-h-screen bg-[#050505] relative overflow-hidden">
       {/* Radial Gradient Background */}
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-900/20 via-[#050505] to-[#050505] pointer-events-none" />
+      <div className="" />
       
       {/* Snowfall Effect */}
       <Snowfall />
