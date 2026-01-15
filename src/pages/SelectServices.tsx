@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Snowfall from '@/components/Snowfall';
 import ServiceCard from '@/components/ServiceCard';
 import AppointmentSummary from '@/components/AppointmentSummary';
+import { Footer } from 'react-day-picker';
 
 // Service data
 const servicesData = {
@@ -166,9 +167,9 @@ const SelectServices = () => {
           
           <Link to="/" className="absolute left-1/2 -translate-x-1/2">
             <img 
-              src="https://lalajithebarbershop.ca/wp-content/uploads/2025/11/logo-horizontal-1.png" 
+              src="https://lalajithebarbershop.ca/wp-content/uploads/2025/11/Lalaji-Mobile-Logo.png" 
               alt="Lalaji The Barber Shop" 
-              className="h-10"
+              className="h-16"
             />
           </Link>
 
@@ -299,7 +300,10 @@ const SelectServices = () => {
             </div>
           </motion.div>
         )}
+        
       </AnimatePresence>
+
+      {/* <Footer/> */}
 
       {/* Bottom padding for mobile bar */}
       <div className="lg:hidden h-24" />

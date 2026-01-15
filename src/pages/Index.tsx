@@ -10,6 +10,7 @@ import CareersSection from '@/components/CareersSection';
 import InstagramSection from '@/components/InstagramSection';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
+import LocationsSection from '@/components/LocationsSection';
 
 const Index = () => {
   return (
@@ -30,6 +31,10 @@ const Index = () => {
         
         {/* Services Section */}
         <ServicesSection />
+
+
+         <LocationsSection/>
+       
         
         {/* Meet the Team Section */}
         <TeamSection />

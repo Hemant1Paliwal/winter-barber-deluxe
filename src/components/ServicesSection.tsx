@@ -107,7 +107,7 @@ const ServicesSection = () => {
         >
           <div className="relative rounded-2xl overflow-hidden">
             <img
-              src="https://lalajithebarbershop.ca/wp-content/uploads/2025/11/Beard-Services.png"
+              src="https://lalajithebarbershop.ca/wp-content/uploads/2025/12/Truro.webp"
               alt="Beard Services"
               className="w-full h-64 md:h-80 object-cover"
             />

@@ -64,7 +64,7 @@ const Navbar = () => {
               transition={{ duration: 0.5 }}
               src="https://lalajithebarbershop.ca/wp-content/uploads/2025/11/Lalaji-Mobile-Logo.png"
               alt="Lalaji The Barber Shop"
-              className="h-12 md:h-14 w-auto"
+              className="h-10 md:h-16 w-auto"
             />
           </a>
 
